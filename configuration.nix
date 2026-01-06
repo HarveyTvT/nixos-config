@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      <home-manager/nixos>
     ];
 
   # Bootloader.
@@ -48,7 +49,7 @@
     type = "ibus";
     ibus.engines = with pkgs.ibus-engines; [
       rime
-    ];     
+    ];
   };
 
   # Enable the X11 windowing system.
@@ -101,6 +102,12 @@
     ];
   };
 
+  home-manager.users.sha2ks = {
+    imports = [
+      ./sha2ks-home.nix
+    ];
+  };
+
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -126,13 +133,16 @@
     telegram-desktop
     telepresence
     synology-drive-client
+    zulu25
+    go
+    nixfmt
 
     gnomeExtensions.hide-top-bar
     gnomeExtensions.dash-to-dock
     gnomeExtensions.user-themes
     gnomeExtensions.appindicator
   ];
-  
+
   nixpkgs.overlays = [
     (import ./overlays/synology-drive-client.nix)
   ];
@@ -163,7 +173,7 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
-  
+
   # Fonts
   fonts = {
     enableDefaultPackages = true;
