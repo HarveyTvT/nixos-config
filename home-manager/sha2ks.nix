@@ -68,7 +68,7 @@
   #  /etc/profiles/per-user/sha2ks/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "vim";
   };
 
   # Let Home Manager install and manage itself.
@@ -78,6 +78,7 @@
     "/home/sha2ks/go/bin"
   ];
 
+  # Use Zsh as the default shell
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -111,5 +112,39 @@
       ];
     };
   };
+
+  # Custom theme
+  gtk = {
+    enable = true;
+
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+
+    theme = {
+      name = "Numix";
+      package = pkgs.numix-gtk-theme;
+    };
+
+    cursorTheme = {
+      name = "Numix-Cursor";
+      package = pkgs.numix-cursor-theme;
+    };
+
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+  };
+
+  home.sessionVariables.GTK_THEME = "Numix";
 
 }
