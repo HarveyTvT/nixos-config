@@ -127,6 +127,13 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
+    zsh
+    go
+    nixfmt
+    gcc
+    zulu25
+    telepresence
+
     sparkle
     google-chrome
     _1password-gui
@@ -134,16 +141,11 @@
     postman
     gitkraken
     dbeaver-bin
-    zsh
     feishu
     telegram-desktop
-    telepresence
     synology-drive-client
-    zulu25
-    go
-    nixfmt
-    gcc
-
+    obsidian
+    wechat
   ];
 
   nixpkgs.overlays = [

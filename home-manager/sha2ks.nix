@@ -40,6 +40,7 @@
 
     # enabled-extensions
     gnome-tweaks
+    dconf-editor
     gnomeExtensions.hide-top-bar
     gnomeExtensions.dash-to-dock
     gnomeExtensions.user-themes
@@ -170,6 +171,11 @@
         "dash-to-dock@micxgx.gmail.com"
       ];
       "extensions/user-theme/name" = "Marble-grey-dark";
+    };
+    "org/gnome/desktop/interface" = {
+      font-name = "Ubuntu 11";
+      document-font-name = "Ubuntu 11";
+      monospace-font-name = "Ubuntu Mono 11";
     };
   };
 }
