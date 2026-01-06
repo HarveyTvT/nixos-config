@@ -58,6 +58,9 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
+  # Enable dconf
+  programs.dconf.enable = true;
+
   services.desktopManager.gnome.extraGSettingsOverrides = ''
     [org.gnome.mutter]
     experimental-features=['scale-monitor-framebuffer', 'xwayland-native-scaling']
@@ -131,7 +134,6 @@
     postman
     gitkraken
     dbeaver-bin
-    gnome-tweaks
     zsh
     feishu
     telegram-desktop
@@ -142,10 +144,6 @@
     nixfmt
     gcc
 
-    gnomeExtensions.hide-top-bar
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.user-themes
-    gnomeExtensions.appindicator
   ];
 
   nixpkgs.overlays = [

@@ -17,7 +17,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -34,6 +34,17 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+
+    # Looks and feels
+    marble-shell-theme
+
+    # enabled-extensions
+    gnome-tweaks
+    gnomeExtensions.hide-top-bar
+    gnomeExtensions.dash-to-dock
+    gnomeExtensions.user-themes
+    gnomeExtensions.appindicator
+
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -118,8 +129,8 @@
     enable = true;
 
     iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      name = "Reversal-dark";
+      package = pkgs.reversal-icon-theme;
     };
 
     theme = {
@@ -147,4 +158,18 @@
 
   home.sessionVariables.GTK_THEME = "Numix";
 
+  # Dconf settings
+  dconf.settings = {
+    # ...
+    "org/gnome/shell" = {
+      disable-user-extensions = false;
+      enabled-extensions = [
+        "hidetopbar@mathieu.bidon.ca"
+        "user-theme@gnome-shell-extensions.gcampax.github.com"
+        "appindicatorsupport@rgcjonas.gmail.com"
+        "dash-to-dock@micxgx.gmail.com"
+      ];
+      "extensions/user-theme/name" = "Marble-grey-dark";
+    };
+  };
 }
