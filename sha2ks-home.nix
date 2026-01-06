@@ -98,6 +98,18 @@
       "pkill *"
       "cp *"
     ];
+
+    oh-my-zsh = {
+      enable = true;
+      theme = "agnoster";
+      plugins = [
+        "git"
+        "z"
+        "sudo"
+        "golang"
+        "docker"
+      ];
+    };
   };
 
 }

@@ -5,11 +5,11 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      <home-manager/nixos>
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    <home-manager/nixos>
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -25,7 +25,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
   nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
-
 
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
@@ -96,9 +95,12 @@
   users.users.sha2ks = {
     isNormalUser = true;
     description = "sha2ks";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -113,6 +115,8 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  environment.shells = with pkgs; [ zsh ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
