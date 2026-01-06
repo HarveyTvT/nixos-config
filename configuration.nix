@@ -106,7 +106,7 @@
 
   home-manager.users.sha2ks = {
     imports = [
-      ./sha2ks-home.nix
+      ./home-manager/sha2ks.nix
     ];
   };
 
