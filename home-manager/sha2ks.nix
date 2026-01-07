@@ -140,8 +140,8 @@
     };
 
     cursorTheme = {
-      name = "Numix-Cursor";
-      package = pkgs.numix-cursor-theme;
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
     };
 
     gtk3.extraConfig = {

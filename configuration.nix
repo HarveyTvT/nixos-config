@@ -7,7 +7,7 @@
 {
   imports = [
     # Include the results of the hardware scan.
-    ./hardwares/razer16.nix
+    ./hardwares/hal-5950.nix
     <home-manager/nixos>
   ];
 
